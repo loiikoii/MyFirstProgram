@@ -1,53 +1,49 @@
-﻿//Vilgot Appelquist SUT25
+//Vilgot Appelquist SUT25
 namespace MyFirstProgram
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            //Strings Start
             int answ;
+            int count = 0;
+            //Strings End
             while (true)
             {
-                Console.WriteLine("Skriv in ett tal mellan 1-20");
                 try
                 {
-                    answ = int.Parse(Console.ReadLine()); //Read int input
-                    if (answ > 10)
+                    Console.Clear();
+                    Console.WriteLine("Välj ett nummer mellan 0-20");
+                    answ = int.Parse(Console.ReadLine()); //Reads input 1 - int
+                    if (answ > 10 && answ < 21) //int higher than 10
                     {
-                        Console.WriteLine("För högt tal");
-                    }
-                    else if (answ < 0)
-                    {
-                        Console.WriteLine("Inga negativa tal tack.");
-                    }
-                    else
-                    {
-                        if (answ >= 10) //if statement to see size - Start
-                        {
-                            Console.WriteLine("Talet är över 10");
-                        }
-                        else if (answ <= 10)
-                        {
-                            Console.WriteLine("Talet är under 10");
-                        }
-                        //If end
-                        Console.WriteLine("Vad heter du?");
-                        String name = Console.ReadLine() ?? string.Empty; //Read string input: name.
-                        Console.WriteLine($"Hej {name}! ");
-                        int num = 0; //Print numbers 0-answer - Start
-                        while (num != answ + 1)
-                        {
-                            Console.Write(num + ", ");
-                            num++;
-                        } //Print number 0-answer - End */
+                        Console.WriteLine("Talet ät stort!");
                         break;
                     }
+                    else if (answ < 10 && answ >= 0) //int lower than 10
+                    {
+                        Console.WriteLine("Oj. Lågt tal!");
+                        break;
+                    }
+                    //else if (answ >= 21)
+                    //{
+                    //    Console.WriteLine("För högt tal.");
+                    //}
                 }
-                catch
+                catch //Wrong input catch
                 {
                     Console.WriteLine("Fel input");
                 }
             }
+            Console.WriteLine("Vad heter du?");
+            string name = Console.ReadLine();
+            Console.WriteLine($"Hej {name}!");
+            while (count != answ + 1)
+            {
+                Console.WriteLine(count);
+                count++;
             }
         }
-        }
+    }
+}
